@@ -68,7 +68,7 @@ print(df.isna().sum())
 
 | Method/Parameter       | Description                                  | Example                          |
 |------------------------|----------------------------------------------|----------------------------------|
-| Replace missing data with frequency        |  | `MostFrequentEntry = df['attribute_name'].value_counts().idxmax() 
+| Replace missing data with frequency        |  | `MostFrequentEntry = df['attribute_name'].value_counts().idxmax(), 
 df['attribute_name'].replace(np.nan,MostFrequentEntry,inplace=True)`        |
 | Binning      | 	Create bins of data for better analysis and visualization.         | `bins = np.linspace(min(df['attribute_name']), 
 max(df['attribute_name'],n)
