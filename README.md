@@ -1,7 +1,6 @@
 # Data Visualization using Python
 
-## Data Importing
-## 2. Data Import & Output Summary
+## 1. Data Import & Output Summary
 
 **File I/O Operations**
 | Format  | Read Method               | Write Method              | Key Parameters                     |
@@ -35,7 +34,7 @@ with pd.ExcelWriter('output.xlsx') as writer:
 df.to_parquet('output.parquet', engine='pyarrow', compression='gzip')
 ```
 
-## Data Pre-processing/Wrangling
+## 2. Data Pre-processing/Wrangling
 
 ### Pandas Missing Data Handling Guide
 
@@ -51,9 +50,9 @@ This guide covers essential methods and parameters for handling missing data in 
 | `.mode()[0]`           | Fill with most frequent value (categorical). | `df['col'].fillna(df['col'].mode()[0])` |
 | `.dropna()`            | Drop rows/columns with missing values.       | `df.dropna(axis=1, thresh=0.5*len(df))` |
 
-## Usage Examples
+**Usage Examples**
 
-### 1. Basic Missing Value Count
+Basic Missing Value Count
 ```python
 import pandas as pd
 
