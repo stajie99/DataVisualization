@@ -59,7 +59,7 @@ import pandas as pd
 
 df = pd.DataFrame({'A': [1, None, 3], 'B': ['x', None, 'z']})
 print(df.isna().sum())
-
+```
 
 
 ### Data Wrangling
@@ -75,8 +75,6 @@ max(df['attribute_name'],n)
 GroupNames = ['Group1','Group2','Group3,...]
 df['binned_attribute_name'] = 
 pd.cut(df['attribute_name'], bins, labels=GroupNames, include_lowest=True)`           |
-| Change column name    | Fill with mean/median (numeric columns).     | `df.fillna(df.mean())`          |
-| `.mode()[0]`           | Fill with most frequent value (categorical). | `df['col'].fillna(df['col'].mode()[0])` |
-| `.dropna()`            | Drop rows/columns with missing values.       | `df.dropna(axis=1, thresh=0.5*len(df))` |
-
-```
+| Change column name    | | `df.rename(columns={'old_name':\'new_name'}, inplace=True)`          |
+| Indicator Variables          | Create indicator variables for categorical data. | `dummy_variable = pd.get_dummies(df['attribute_name'])
+df = pd.concat([df, dummy_variable],axis = 1)` |
