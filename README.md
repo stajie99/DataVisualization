@@ -12,7 +12,6 @@
 | SQL     | `pd.read_sql()`           | `df.to_sql()`             | `con` (DB connection), `if_exists` |
 
 **Example Usage**
-Reading Data
 ```python
 # Reading Data
 # CSV
