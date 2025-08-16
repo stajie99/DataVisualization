@@ -69,8 +69,6 @@ print(df.isna().sum())
 | Method/Parameter       | Description                                  | Example                          |
 |------------------------|----------------------------------------------|----------------------------------|
 | Replace missing data with frequency        |  | `MostFrequentEntry = df['attribute_name'].value_counts().idxmax()\ df['attribute_name'].replace(np.nan,MostFrequentEntry,inplace=True)`        |
-| Binning      | 	Create bins of data for better analysis and visualization.         | `bins = np.linspace(min(df['attribute_name']), max(df['attribute_name']),n) \ GroupNames = ['Group1','Group2','Group3,...] \
-df['binned_attribute_name'] = 
-pd.cut(df['attribute_name'], bins, labels=GroupNames, include_lowest=True)`           |
+| Binning      | 	Create bins of data for better analysis and visualization.         | `bins = np.linspace(min(df['attribute_name']), max(df['attribute_name']),n) \ GroupNames = ['Group1','Group2','Group3,...] \ df['binned_attribute_name'] = pd.cut(df['attribute_name'], bins, labels=GroupNames, include_lowest=True)`           |
 | Change column name    | | `df.rename(columns={'old_name':\'new_name'}, inplace=True)`          |
 | Indicator Variables          | Create indicator variables for categorical data. | `dummy_variable = pd.get_dummies(df['attribute_name']) \ df = pd.concat([df, dummy_variable],axis = 1)` |
