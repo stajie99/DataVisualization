@@ -37,7 +37,7 @@ df.to_parquet('output.parquet', engine='pyarrow', compression='gzip')
 
 ## 2. Data Pre-processing/Wrangling
 
-### Pandas Missing Data Handling Guide
+### 2.1 Pandas Missing Data Handling Guide
 
 This guide covers essential methods and parameters for handling missing data in pandas DataFrames, focusing on column-wise operations.
 
@@ -62,7 +62,7 @@ print(df.isna().sum())
 ```
 
 
-### Data Wrangling
+### 2.2 Data Wrangling
 
 **Key Parameters & Methods**
 
