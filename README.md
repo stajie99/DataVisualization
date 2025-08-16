@@ -59,4 +59,24 @@ import pandas as pd
 
 df = pd.DataFrame({'A': [1, None, 3], 'B': ['x', None, 'z']})
 print(df.isna().sum())
+
+
+
+### Data Wrangling
+
+**Key Parameters & Methods**
+
+| Method/Parameter       | Description                                  | Example                          |
+|------------------------|----------------------------------------------|----------------------------------|
+| Replace missing data with frequency        |  | `MostFrequentEntry = df['attribute_name'].value_counts().idxmax() 
+df['attribute_name'].replace(np.nan,MostFrequentEntry,inplace=True)`        |
+| Binning      | 	Create bins of data for better analysis and visualization.         | `bins = np.linspace(min(df['attribute_name']), 
+max(df['attribute_name'],n)
+GroupNames = ['Group1','Group2','Group3,...]
+df['binned_attribute_name'] = 
+pd.cut(df['attribute_name'], bins, labels=GroupNames, include_lowest=True)`           |
+| Change column name    | Fill with mean/median (numeric columns).     | `df.fillna(df.mean())`          |
+| `.mode()[0]`           | Fill with most frequent value (categorical). | `df['col'].fillna(df['col'].mode()[0])` |
+| `.dropna()`            | Drop rows/columns with missing values.       | `df.dropna(axis=1, thresh=0.5*len(df))` |
+
 ```
