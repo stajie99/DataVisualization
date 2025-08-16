@@ -14,6 +14,7 @@
 **Example Usage**
 Reading Data
 ```python
+# Reading Data
 # CSV
 df = pd.read_csv('data.csv', sep=',', encoding='utf-8')
 
@@ -23,6 +24,7 @@ df = pd.read_excel('data.xlsx', sheet_name='Sheet1')
 # JSON
 df = pd.read_json('data.json', orient='records')
 
+# Writing Data
 # CSV (no index)
 df.to_csv('output.csv', index=False)
 
@@ -52,8 +54,8 @@ This guide covers essential methods and parameters for handling missing data in 
 
 **Usage Examples**
 
-Basic Missing Value Count
 ```python
+# Basic Missing Value Count
 import pandas as pd
 
 df = pd.DataFrame({'A': [1, None, 3], 'B': ['x', None, 'z']})
