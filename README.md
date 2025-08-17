@@ -72,3 +72,56 @@ print(df.isna().sum())
 | Binning      | 	Create bins of data for better analysis and visualization.         | `bins = np.linspace(min(df['attribute_name']), max(df['attribute_name']),n) \ GroupNames = ['Group1','Group2','Group3,...] \ df['binned_attribute_name'] = pd.cut(df['attribute_name'], bins, labels=GroupNames, include_lowest=True)`           |
 | Change column name    | | `df.rename(columns={'old_name':\'new_name'}, inplace=True)`          |
 | Indicator Variables          | Create indicator variables for categorical data. | `dummy_variable = pd.get_dummies(df['attribute_name']) \ df = pd.concat([df, dummy_variable],axis = 1)` |
+
+
+### 2.3 Data Visualization commands in Python
+
+The two major libraries used to create plots are **matplotlib** and **seaborn**. We will learn the prominent plotting functions of both these libraries as applicable to Data Analysis.
+
+**Matplotlib**:
+
+```python
+
+from matplotlib import pyplot as plt # or
+import matplotlib.pyplot as plt
+```
+Most of the useful plots in this library are in the pyplot subfolder. 
+
+Seaborn:
+
+```python
+import seaborn as sns
+```
+Matplotlib Functions
+1. Standard Line Plot
+2. Scatter Plot
+3. Histogram
+4. Bar Plot
+5. Pseudo Color Plot
+A pseudocolor plot displays matrix data as an array of colored cells (faces). It is created on an x-y plane defined by a grid of x and y coordinates. A matrix C specifies the colors at the vertices.
+```python
+plt.plot(x, y)
+plt.scatter(x, y)
+plt.hist(x, bins)
+# You can use the edgecolor argument for better clarity.
+plt.bar(x, height)
+plt.pcolor(C)
+```
+
+**Seaborn Functions**
+1. Regression Plot
+2. Box and Whisker Plot
+3. Residual Plot
+   Residuals are the differences between the observed values of the dependent variable and the predicted values from the regression model. They measure how much a regression line misses a data point vertically, indicating the accuracy of the predictions.
+4. KDE Plot
+   A Kernel Density Estimate (KDE) plot creates a probability distribution curve for a single vector of information based on the likelihood of a specific value's occurrence.
+5. Distribution Plot
+   This plot combines the histogram and KDE plots. You can choose to display the histogram along with the distribution plot or not. 
+
+```python
+sns.regplot(x='header_1', y='header_2', data=df)
+sns.residplot(data=df, x='header_1', y='header_2')
+sns.residplot(x=df['header_1'], y=df['header_2'])
+sns.kdeplot(X)
+sns.distplot(X, hist=False)
+```
