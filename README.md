@@ -244,10 +244,10 @@ $df=(2-1)\\times(2-1)=1$
 **Step 4: Interpret the Result**
 Using a chi-square distribution table, we compare the calculated chi-square value (44.33) with the critical value at one degree of freedom and a significance level (e.g., 0.05), approximately 3.841. Since $44.33 \> 3.841$, we reject the null hypothesis. This indicates a significant association between smoking status and the incidence of lung disease in this sample.
 
-### Conclusion
+**Conclusion**
 
 The chi-square test is a powerful tool for analyzing the relationship between categorical variables. By comparing observed and expected frequencies, researchers can determine if there is a statistically significant association, providing valuable insights in various fields of study.
-## 5. Correlation
+## 5. Correlation in Python
 **Key Differences at a Glance**
 | Feature | `scipy.stats.pearsonr()` | `pandas.DataFrame.corr()` |
 | :--- | :--- | :--- |
