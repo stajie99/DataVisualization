@@ -247,3 +247,12 @@ Using a chi-square distribution table, we compare the calculated chi-square valu
 ### Conclusion
 
 The chi-square test is a powerful tool for analyzing the relationship between categorical variables. By comparing observed and expected frequencies, researchers can determine if there is a statistically significant association, providing valuable insights in various fields of study.
+## 5. Correlation
+**Key Differences at a Glance**
+| Feature | `scipy.stats.pearsonr()` | `pandas.DataFrame.corr()` |
+| :--- | :--- | :--- |
+| **Primary Use** | Significance test between **two** variables | Generating a correlation matrix for **multiple** variables |
+| **Input** | Two 1D arrays/Series | A pandas DataFrame |
+| **Output** | Tuple (correlation, p-value) | DataFrame (correlation matrix) |
+| **P-value** | **Included** | **Not included** by default |
+| **Library** | SciPy | Pandas |
