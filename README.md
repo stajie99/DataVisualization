@@ -220,15 +220,22 @@ Consider a study investigating the relationship between smoking status (smoker, 
 **Step 1: Calculate Expected Frequencies**
 Using the formula for expected frequencies:
 $E\_{Smoker, Disease} = \\frac{(80 \\times 70)}{200} = 28$
+
 $E\_{Smoker, No Disease} = \\frac{(80 \\times 130)}{200} = 52$
+
 $E\_{Non-Smoker, Disease} = \\frac{(120 \\times 70)}{200} = 42$
+
 $E\_{Non-Smoker, No Disease} = \\frac{(120 \\times 130)}{200} = 78$
 
 **Step 2: Compute Chi-Square Statistic**
 $\\chi^{2} = \\frac{(50-28)^{2}}{28} + \\frac{(30-52)^{2}}{52} + \\frac{(20-42)^{2}}{42} + \\frac{(100-78)^{2}}{78}$
+
 $\\chi^{2} = \\frac{(22)^{2}}{28} + \\frac{(-22)^{2}}{52} + \\frac{(-22)^{2}}{42} + \\frac{(22)^{2}}{78}$
+
 $\\chi^{2} = \\frac{484}{28} + \\frac{484}{52} + \\frac{484}{42} + \\frac{484}{78}$
+
 $\\chi^{2} = 17.29 + 9.31 + 11.52 + 6.21$
+
 $\\chi^{2} = 44.33$
 
 **Step 3: Determine Degrees of Freedom**
