@@ -219,6 +219,7 @@ Consider a study investigating the relationship between smoking status (smoker, 
 
 **Step 1: Calculate Expected Frequencies**
 Using the formula for expected frequencies:
+
 $E\_{Smoker, Disease} = \\frac{(80 \\times 70)}{200} = 28$
 
 $E\_{Smoker, No Disease} = \\frac{(80 \\times 130)}{200} = 52$
