@@ -257,3 +257,58 @@ The chi-square test is a powerful tool for analyzing the relationship between ca
 | **Output** | Tuple (correlation, p-value) | DataFrame (correlation matrix) |
 | **P-value** | **Included** | **Not included** by default |
 | **Library** | SciPy | Pandas |
+
+
+## 6. Model Evaluation - Kernel Density Estimation (KDE) Plots
+
+Kernel Density Estimation (KDE) plots are useful for visualizing data distributions by estimating their probability density function (PDF). In regression analysis, they are particularly effective for comparing actual and predicted values. 
+
+**Why Use KDE Plots?**
+1. KDE plots are beneficial for model evaluation for several reasons:
+2. They provide a smooth approximation of the data distribution.
+3. They are not sensitive to bin sizes, which is a common issue with histograms.
+4. They help in effectively comparing true versus predicted distributions.
+5. They can highlight deviations between observed and predicted values.
+
+**Implementation in Python**
+
+seaborn.kdeplot() function to compare the distributions of actual and predicted values from a linear regression model.
+
+```python
+import numpy as npy
+import pandas as pds
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error
+
+# Generating Sample Data
+npy.random.seed(42)
+x = npy.arange(100)
+y = 3 * x + npy.random.normal(0, 10, 100) # Linear relation with noise
+data = pds.DataFrame({'X': x, 'Y': y})
+
+# Splitting Data
+X_train, X_test, y_train, y_test = train_test_split(data[['X']], data['Y'], test_size=0.2, random_state=42)
+
+# Training a Model
+model = LinearRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+
+# Plotting KDE for Observed vs. Predicted Values
+plt.figure(figsize=(8, 5))
+sns.kdeplot(y_test, label='Actual', fill=True, color='blue')
+sns.kdeplot(y_pred, label='Predicted', fill=True, color='red')
+plt.xlabel('Target Variable')
+plt.ylabel('Density')
+plt.title('KDE Plot of Actual vs. Predicted Values')
+plt.legend()
+plt.show()
+```
+**Interpretation of the KDE Plot**
+1. Overlap Between Distributions: A significant overlap between the two curves indicates that the model has captured the general distribution of the actual target values reasonably well.
+2. Peak Differences: The actual values (blue curve) may have a higher peak, showing a greater concentration around certain values. 
+3. Spread of Distributions: The actual values may have a wider spread, indicating more variation in the real-world data. A narrower spread for predicted values can suggest that the model is underestimating variance, which might be a sign of over-smoothing or bias.
+4. Tails of Distributions: If the tails of the predicted values closely follow the actual values, it means the model is not generating extreme outliers. A significant mismatch in the tails could indicate that the model struggles with extreme cases.
