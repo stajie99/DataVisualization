@@ -336,18 +336,18 @@ plt.show()
 
 #### 7.3 Pipeline
 
-| Process | Description | Code Example |
-| :--- | :--- | :--- |
-| **Data Pipelines** | Simplify the steps of processing the data by creating a list of tuples with the name of the model/estimator and its corresponding constructor[cite: 9]. | `from sklearn.pipeline import Pipeline`  
-`from sklearn.preprocessing import StandardScaler`  
-`Input=[('scale', StandardScaler()), ('polynomial', PolynomialFeatures(include_bias=False)), ('model', LinearRegression())]`  
-`pipe = Pipeline(Input)`  
-`Z = Z.astype(float)`  
-`pipe.fit(Z,y)`  
-`y_pipe = pipe.predict(Z)` |
-
-
-
+| Process | Description |
+| :--- | :--- |
+| **Data Pipelines** | Simplify the steps of processing the data by creating a list of tuples with the name of the model/estimator and its corresponding constructor| 
+```python
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+Input=[('scale', StandardScaler()), ('polynomial', PolynomialFeatures(include_bias=False)), ('model', LinearRegression())]
+pipe = Pipeline(Input)
+Z = Z.astype(float)
+pipe.fit(Z,y)
+y_pipe = pipe.predict(Z)
+```
 
 
 
