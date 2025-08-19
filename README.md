@@ -319,29 +319,29 @@ plt.show()
 
 | Process | Description | Code Example |
 | :--- | :--- | :--- |
-| **Create a Linear Regression model object** | | `from sklearn.linear_model import LinearRegression`\>`lr = LinearRegression()` |
-| **Train Linear Regression model** | Train the model on decided data, separating Input and Output attributes. When there is a single input attribute, it is simple linear regression. When there are multiple attributes, it is multiple linear regression. | `X = df[['attribute_1', 'attribute_2', ...]]`\>`Y = df['target_attribute']`\>`lr.fit(X,Y)` |
+| **Create a Linear Regression model object** | | `from sklearn.linear_model import LinearRegression`\`lr = LinearRegression()` |
+| **Train Linear Regression model** | Train the model on decided data, separating Input and Output attributes. When there is a single input attribute, it is simple linear regression. When there are multiple attributes, it is multiple linear regression. | `X = df[['attribute_1', 'attribute_2', ...]]`\`Y = df['target_attribute']`\`lr.fit(X,Y)` |
 | **Generate output predictions** | Predict the output for a set of Input attribute values. | `Y_hat = lr.predict(X)` |
-| **Identify the coefficient and intercept** | Identify the slope coefficient (m) and intercept (c) values of the linear regression model. | `coeff = lr.coef_`\>`intercept = lr.intercept_` |
-| **Residual Plot** | This function will regress y on x and then draw a scatterplot of the residuals. | `import seaborn as sns`\>`sns.residplot(x=df['attribute_1'], y=df ['attribute_2'])` |
-| **Distribution Plot** | This function can be used to plot the distribution of data with respect to a given attribute. | `import seaborn as sns`\>`sns.distplot(df['attribute_name'], hist=False)` |
+| **Identify the coefficient and intercept** | Identify the slope coefficient (m) and intercept (c) values of the linear regression model. | `coeff = lr.coef_`\`intercept = lr.intercept_` |
+| **Residual Plot** | This function will regress y on x and then draw a scatterplot of the residuals. | `import seaborn as sns`\`sns.residplot(x=df['attribute_1'], y=df ['attribute_2'])` |
+| **Distribution Plot** | This function can be used to plot the distribution of data with respect to a given attribute. | `import seaborn as sns`\`sns.distplot(df['attribute_name'], hist=False)` |
 
 #### 7.2 Polynomial Regression
 
 | Process | Description | Code Example |
 | :--- | :--- | :--- |
-| **For single variable feature creation and model fitting** | Available under the numpy package for single variable feature creation and model fitting[cite: 9]. | `f = np.polyfit(x, y, n)`\<br\>`p = np.poly1d(f)`\<br\>`Y_hat = p(x)`[cite: 9] |
-| **Multi-variate Polynomial Regression** | Generate a new feature matrix consisting of all polynomial combinations of the features up to a specified degree[cite: 9]. | `from sklearn.preprocessing import PolynomialFeatures`[cite: 9]\<br\>`Z = df[['attribute_1', 'attribute_2',...]]`[cite: 9]\<br\>`pr = PolynomialFeatures (degree=n)`[cite: 9]\<br\>`Z_pr = pr.fit_transform(Z)`[cite: 9] |
+| **For single variable feature creation and model fitting** | Available under the numpy package for single variable feature creation and model fitting[cite: 9]. | `f = np.polyfit(x, y, n)`\<br\`p = np.poly1d(f)`\<br\`Y_hat = p(x)` |
+| **Multi-variate Polynomial Regression** | Generate a new feature matrix consisting of all polynomial combinations of the features up to a specified degree[cite: 9]. | `from sklearn.preprocessing import PolynomialFeatures`[cite: 9]\<br\`Z = df[['attribute_1', 'attribute_2',...]]`[cite: 9]\<br\`pr = PolynomialFeatures (degree=n)`[cite: 9]\<br\`Z_pr = pr.fit_transform(Z)` |
 
 #### 7.3 Pipeline
 
 | Process | Description | Code Example |
 | :--- | :--- | :--- |
-| **Data Pipelines** | Simplify the steps of processing the data by creating a list of tuples with the name of the model/estimator and its corresponding constructor[cite: 9]. | `from sklearn.pipeline import Pipeline`[cite: 9]\<br\>`from sklearn.preprocessing import StandardScaler`[cite: 9]\<br\>`Input=[('scale', StandardScaler()), ('polynomial', PolynomialFeatures(include_bias=False)), ('model', LinearRegression())]`[cite: 9]\<br\>`pipe = Pipeline(Input)`[cite: 9]\<br\>`Z = Z.astype(float)`\<br\>`pipe.fit(Z,y)`\<br\>`y_pipe = pipe.predict(Z)`[cite: 9] |
+| **Data Pipelines** | Simplify the steps of processing the data by creating a list of tuples with the name of the model/estimator and its corresponding constructor[cite: 9]. | `from sklearn.pipeline import Pipeline` `from sklearn.preprocessing import StandardScaler` `Input=[('scale', StandardScaler()), ('polynomial', PolynomialFeatures(include_bias=False)), ('model', LinearRegression())]` `pipe = Pipeline(Input)` `Z = Z.astype(float)`\<br\>`pipe.fit(Z,y)`\<br\>`y_pipe = pipe.predict(Z)` |
 
 #### 7.4 Model Evaluation
 
 | Process | Description | Code Example |
 | :--- | :--- | :--- |
-| **R² value** | A measure to indicate how close the data is to the fitted regression line[cite: 9]. The value is the percentage of variation of the response variable (y) that is explained by a linear model[cite: 9]. | **For Linear Regression**: \<br\>`X = df[['attribute_1', 'attribute_2', ...]]`\<br\>`Y = df['target_attribute']`\<br\>`lr.fit(X,Y)`\<br\>`R2_score = lr.score(X,Y)`[cite: 9]\<br\>**For Polynomial Regression**: \<br\>`from sklearn.metrics import r2_score`\<br\>`f = np.polyfit(x, y, n)`\<br\>`p = np.poly1d(f)`\<br\>`R2_score = r2_score(y, p(x))`[cite: 9] |
-| **MSE value** | The Mean Squared Error measures the average of the squares of errors, which is the difference between actual and estimated values[cite: 9]. | `from sklearn.metrics import mean_squared_error`[cite: 9]\<br\>`mse = mean_squared_error(Y, Y_hat)`[cite: 9] |
+| **R² value** | A measure to indicate how close the data is to the fitted regression line[cite: 9]. The value is the percentage of variation of the response variable (y) that is explained by a linear model[cite: 9]. | **For Linear Regression**: \<br\>`X = df[['attribute_1', 'attribute_2', ...]]`\<br\>`Y = df['target_attribute']`\<br\>`lr.fit(X,Y)`\<br\>`R2_score = lr.score(X,Y)` **For Polynomial Regression**: \<br\>`from sklearn.metrics import r2_score`\<br\>`f = np.polyfit(x, y, n)`\<br\>`p = np.poly1d(f)`\<br\>`R2_score = r2_score(y, p(x))` |
+| **MSE value** | The Mean Squared Error measures the average of the squares of errors, which is the difference between actual and estimated values[cite: 9]. | `from sklearn.metrics import mean_squared_error` `mse = mean_squared_error(Y, Y_hat)` |
