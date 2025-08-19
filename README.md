@@ -319,20 +319,20 @@ plt.show()
 
 | Process | Description | Code Example |
 | :--- | :--- | :--- |
-| **Create a Linear Regression model object** | | `from sklearn.linear_model import LinearRegression` \
+| **1. Create a Linear Regression model object** | | `from sklearn.linear_model import LinearRegression`
 `lr = LinearRegression()` |
-| **Train Linear Regression model** | Train the model on decided data, separating Input and Output attributes. When there is a single input attribute, it is simple linear regression. When there are multiple attributes, it is multiple linear regression. | `X = df[['attribute_1', 'attribute_2', ...]]`  `Y = df['target_attribute']`  `lr.fit(X,Y)` |
-| **Generate output predictions** | Predict the output for a set of Input attribute values. | `Y_hat = lr.predict(X)` |
-| **Identify the coefficient and intercept** | Identify the slope coefficient (m) and intercept (c) values of the linear regression model. | `coeff = lr.coef_`  `intercept = lr.intercept_` |
-| **Residual Plot** | This function will regress y on x and then draw a scatterplot of the residuals. | `import seaborn as sns`  `sns.residplot(x=df['attribute_1'], y=df ['attribute_2'])` |
-| **Distribution Plot** | This function can be used to plot the distribution of data with respect to a given attribute. | `import seaborn as sns`  `sns.distplot(df['attribute_name'], hist=False)` |
+| **2. Train Linear Regression model** | Train the model on decided data, separating Input and Output attributes. When there is a single input attribute, it is simple linear regression. When there are multiple attributes, it is multiple linear regression. | `X = df[['attribute_1', 'attribute_2', ...]]`  `Y = df['target_attribute']`  `lr.fit(X,Y)` |
+| **3. Generate output predictions** | Predict the output for a set of Input attribute values. | `Y_hat = lr.predict(X)` |
+| **4. Identify the coefficient and intercept** | Identify the slope coefficient (m) and intercept (c) values of the linear regression model. | `coeff = lr.coef_`  `intercept = lr.intercept_` |
+| **5. Residual Plot** | This function will regress y on x and then draw a scatterplot of the residuals. | `import seaborn as sns`  `sns.residplot(x=df['attribute_1'], y=df ['attribute_2'])` |
+| **6. Distribution Plot** | This function can be used to plot the distribution of data with respect to a given attribute. | `import seaborn as sns`  `sns.distplot(df['attribute_name'], hist=False)` |
 
 #### 7.2 Polynomial Regression
 
 | Process | Description |
 | :--- | :--- |
-| **For single variable feature creation and model fitting** | Available under the numpy package for single variable feature creation and model fitting. | 
-| **Multi-variate Polynomial Regression** | Generate a new feature matrix consisting of all polynomial combinations of the features up to a specified degree. | 
+| **1. For single variable feature creation and model fitting** | Available under the numpy package for single variable feature creation and model fitting. | 
+| **2. Multi-variate Polynomial Regression** | Generate a new feature matrix consisting of all polynomial combinations of the features up to a specified degree. | 
 ```python
 f = np.polyfit(x, y, n)
 p = np.poly1d(f)
