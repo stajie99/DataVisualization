@@ -319,8 +319,7 @@ plt.show()
 
 | Process | Description | Code Example |
 | :--- | :--- | :--- |
-| **1. Create a Linear Regression model object** | | `from sklearn.linear_model import LinearRegression`
-`lr = LinearRegression()` |
+| **1. Create a Linear Regression model object** | | `from sklearn.linear_model import LinearRegression`  `lr = LinearRegression()` |
 | **2. Train Linear Regression model** | Train the model on decided data, separating Input and Output attributes. When there is a single input attribute, it is simple linear regression. When there are multiple attributes, it is multiple linear regression. | `X = df[['attribute_1', 'attribute_2', ...]]`  `Y = df['target_attribute']`  `lr.fit(X,Y)` |
 | **3. Generate output predictions** | Predict the output for a set of Input attribute values. | `Y_hat = lr.predict(X)` |
 | **4. Identify the coefficient and intercept** | Identify the slope coefficient (m) and intercept (c) values of the linear regression model. | `coeff = lr.coef_`  `intercept = lr.intercept_` |
@@ -365,7 +364,6 @@ y_pipe = pipe.predict(Z)
 | Process | Description |
 | :--- | :--- |
 | **R² value** | A measure to indicate how close the data is to the fitted regression line. The value is the percentage of variation of the response variable (y) that is explained by a linear model| 
-
 | **MSE value** | The Mean Squared Error measures the average of the squares of errors, which is the difference between actual and estimated values| 
 ```python
 # **For Linear Regression**: 
