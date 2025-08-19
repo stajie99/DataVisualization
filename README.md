@@ -329,11 +329,20 @@ plt.show()
 
 #### 7.2 Polynomial Regression
 
-| Process | Description | Code Example |
-| :--- | :--- | :--- |
-| **For single variable feature creation and model fitting** | Available under the numpy package for single variable feature creation and model fitting[cite: 9]. | `f = np.polyfit(x, y, n)`  `p = np.poly1d(f)`  `Y_hat = p(x)` |
-| **Multi-variate Polynomial Regression** | Generate a new feature matrix consisting of all polynomial combinations of the features up to a specified degree[cite: 9]. | `from sklearn.preprocessing import PolynomialFeatures`  `Z = df[['attribute_1', 'attribute_2',...]]`  `pr = PolynomialFeatures (degree=n)`  `Z_pr = pr.fit_transform(Z)` |
+| Process | Description |
+| :--- | :--- |
+| **For single variable feature creation and model fitting** | Available under the numpy package for single variable feature creation and model fitting. | 
+| **Multi-variate Polynomial Regression** | Generate a new feature matrix consisting of all polynomial combinations of the features up to a specified degree. | 
+```python
+f = np.polyfit(x, y, n)
+p = np.poly1d(f)
+Y_hat = p(x)
 
+from sklearn.preprocessing import PolynomialFeatures
+Z = df[['attribute_1', 'attribute_2',...]]
+pr = PolynomialFeatures (degree=n)
+Z_pr = pr.fit_transform(Z)
+```
 #### 7.3 Pipeline
 
 | Process | Description |
@@ -353,7 +362,24 @@ y_pipe = pipe.predict(Z)
 
 #### 7.4 Model Evaluation
 
-| Process | Description | Code Example |
-| :--- | :--- | :--- |
-| **R² value** | A measure to indicate how close the data is to the fitted regression line[cite: 9]. The value is the percentage of variation of the response variable (y) that is explained by a linear model[cite: 9]. | **For Linear Regression**: \<br\>`X = df[['attribute_1', 'attribute_2', ...]]`\<br\>`Y = df['target_attribute']`\<br\>`lr.fit(X,Y)`\<br\>`R2_score = lr.score(X,Y)` **For Polynomial Regression**: \<br\>`from sklearn.metrics import r2_score`\<br\>`f = np.polyfit(x, y, n)`\<br\>`p = np.poly1d(f)`\<br\>`R2_score = r2_score(y, p(x))` |
-| **MSE value** | The Mean Squared Error measures the average of the squares of errors, which is the difference between actual and estimated values[cite: 9]. | `from sklearn.metrics import mean_squared_error` `mse = mean_squared_error(Y, Y_hat)` |
+| Process | Description |
+| :--- | :--- |
+| **R² value** | A measure to indicate how close the data is to the fitted regression line. The value is the percentage of variation of the response variable (y) that is explained by a linear model| 
+
+| **MSE value** | The Mean Squared Error measures the average of the squares of errors, which is the difference between actual and estimated values| 
+```python
+# **For Linear Regression**: 
+X = df[['attribute_1', 'attribute_2', ...]]
+Y = df['target_attribute']
+lr.fit(X,Y)
+R2_score = lr.score(X,Y)
+# **For Polynomial Regression**:   
+from sklearn.metrics import r2_score
+f = np.polyfit(x, y, n)
+p = np.poly1d(f)
+R2_score = r2_score(y, p(x))
+
+
+from sklearn.metrics import mean_squared_error
+mse = mean_squared_error(Y, Y_hat)
+```
