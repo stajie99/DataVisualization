@@ -387,14 +387,14 @@ mse = mean_squared_error(Y, Y_hat)
 ### Process
 | Process | Description |
 | :--- | :--- |
-| **Splitting data for training and testing** | The process involves first separating the target attribute (output) from the rest of the data (input). Then, the input and output datasets are split into training and testing subsets. | 
+| **1. Splitting data for training and testing** | The process involves first separating the target attribute (output) from the rest of the data (input). Then, the input and output datasets are split into training and testing subsets. | 
 ```python
  from sklearn.model_selection import train_test_split 
  y_data = df['target_attribute'] 
  x_data = df.drop('target_attribute', axis=1) 
  x_train, x_test, y_train, y_test = train_test_split(x_data, y_data, test_size=0.10, random_state=1)
  ``` 
-| **Cross-validation score** | Without sufficient data, cross-validation is used, which involves creating different subsets of training and testing data multiple times and evaluating performance across all of them using the $R^{2}$ value. | 
+| **2. Cross-validation score** | Without sufficient data, cross-validation is used, which involves creating different subsets of training and testing data multiple times and evaluating performance across all of them using the $R^{2}$ value. | 
 ```python 
 from sklearn.model_selection import cross_val_score 
 from sklearn.linear_model import LinearRegression 
@@ -403,14 +403,14 @@ Rcross = cross_val_score(lre, x_data[['attribute_1']], y_data, cv=n)
 Rcross.mean() # Mean Std_dev 
 Rcross.std() 
 ```
-| **Cross-validation prediction** | Use a cross-validated model to create a prediction of the output. | 
+| **3. Cross-validation prediction** | Use a cross-validated model to create a prediction of the output. | 
 ```python 
 from sklearn.model_selection import cross_val_predict 
 from sklearn.linear_model import LinearRegression 
 lre = LinearRegression() 
 yhat = cross_val_predict(lre, x_data[['attribute_1']], y_data, cv=4) 
 ```
-| **Ridge Regression and Prediction** | To create a better-fitting polynomial regression model that avoids overfitting, use the Ridge regression model with a parameter alpha. Alpha is used to modify the effect of higher-order parameters on the model prediction. | 
+| **4. Ridge Regression and Prediction** | To create a better-fitting polynomial regression model that avoids overfitting, use the Ridge regression model with a parameter alpha. Alpha is used to modify the effect of higher-order parameters on the model prediction. | 
 ```python 
 from sklearn.linear_model import Ridge 
 pr = PolynomialFeatures(degree=2) 
@@ -420,7 +420,7 @@ RigeModel = Ridge(alpha=1)
 RigeModel.fit(x_train_pr, y_train) 
 yhat = RigeModel.predict(x_test_pr) 
 ```
-| **Grid Search** | Use Grid Search to find the correct `alpha` value for which the Ridge regression model gives the best performance. It also uses cross-validation to create a more refined model. | 
+| **5. Grid Search** | Use Grid Search to find the correct `alpha` value for which the Ridge regression model gives the best performance. It also uses cross-validation to create a more refined model. | 
 ```python 
 from sklearn.model_selection import GridSearchCV 
 from sklearn.linear_model import Ridge 
