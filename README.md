@@ -418,7 +418,9 @@ x_train_pr = pr.fit_transform(x_train[['attribute_1', 'attribute_2', ...]])
 x_test_pr = pr.fit_transform(x_test[['attribute_1', 'attribute_2', ...]]) 
 RigeModel = Ridge(alpha=1) 
 RigeModel.fit(x_train_pr, y_train) 
-yhat = RigeModel.predict(x_test_pr) 
+yhat = RigeModel.predict(x_test_pr)
+#  or 
+print(rg.score(x_test_pr, y_test))
 ```
 | **5. Grid Search** | Use Grid Search to find the correct `alpha` value for which the Ridge regression model gives the best performance. It also uses cross-validation to create a more refined model. | 
 ```python 
