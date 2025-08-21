@@ -258,6 +258,10 @@ The chi-square test is a powerful tool for analyzing the relationship between ca
 | **P-value** | **Included** | **Not included** by default |
 | **Library** | SciPy | Pandas |
 
+```python
+df_numeric = df.select_dtypes(include=[np.number])
+df_numeric.corr()['price'].sort_values()
+```
 
 ## 6. Model Evaluation - Kernel Density Estimation (KDE) Plots
 
